@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая Книга</title>
+</head>
+<body>
+  <form th:action="@{/book/new}" th:method="post" th:object="${book}">\
+    <label for="name">Введите название книги:</label>
+    <input type="text" th:field="*{name}" id="name">
+    <br>
+    <label for="price">Введите цену книги:</label>
+    <input type="text" th:field="*{price}" id="price">
+    <input type="submit">
+  </form>
+</body>
+</html>

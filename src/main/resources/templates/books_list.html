@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books List</title>
+    <style>
+      td {
+        border-color: darkred;
+        border-width: medium;
+      }
+    </style>
+</head>
+<body>
+  <h1>Library: </h1>
+<table>
+  <tr>
+    <td>Book Id</td><td>Book Name</td> <td>Book Price</td>
+  </tr>
+  <th:block th:each="book: ${books}">
+    <tr>
+      <td th:text="${book.id}"></td>
+      <td th:text="${book.name}"></td>
+      <td th:text="${book.price}"></td>
+      <td><a th:href="@{/book/edit/{id}(id=${book.id})}">Редактировать</a></td>
+      <td><a th:href="@{/book/delete/{id}(id=${book.id})}">Удалить</a></td>
+    </tr>
+  </th:block>
+  <a th:href="@{/book/new}">Добавить книгу</a>
+
+</table>
+</body>
+</html>
