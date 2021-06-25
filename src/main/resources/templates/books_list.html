@@ -22,11 +22,14 @@
       <td th:text="${book.name}"></td>
       <td th:text="${book.price}"></td>
       <td><a th:href="@{/book/edit/{id}(id=${book.id})}">Редактировать</a></td>
-      <td><a th:href="@{/book/delete/{id}(id=${book.id})}">Удалить</a></td>
+      <td>  <div th:each="permission : ${permissions}">
+                <a th:if="${permission.getPermission().equals('developers:delete')}" th:href="@{/book/delete/{id}(id=${book.id})}">Удалить</a>
+            </div>
+      </td>
     </tr>
   </th:block>
-  <a th:href="@{/book/new}">Добавить книгу</a>
 
 </table>
+  <a th:href="@{/book/new}">Добавить книгу</a>
 </body>
 </html>
